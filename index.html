@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>رزومه | [نام شما]</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f4f6fa;
+      --card: #ffffff;
+      --primary: #1f3a5f;
+      --accent: #c9a24b;
+      --text: #2b2f36;
+      --muted: #667085;
+      --line: #e5e9f0;
+      --radius: 14px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Vazirmatn', Tahoma, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.85;
+    }
+
+    .page {
+      max-width: 860px;
+      margin: 40px auto;
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: 0 10px 40px rgba(31, 58, 95, 0.08);
+      overflow: hidden;
+    }
+
+    /* ---------- سربرگ ---------- */
+    .header {
+      background: linear-gradient(135deg, var(--primary) 0%, #2e5a8a 100%);
+      color: #fff;
+      padding: 48px 56px 40px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .header h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+    .header .role {
+      margin-top: 6px;
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: #d7e2f0;
+    }
+
+    .avatar {
+      width: 104px;
+      height: 104px;
+      border-radius: 50%;
+      border: 3px solid var(--accent);
+      background: rgba(255, 255, 255, 0.15);
+      display: grid;
+      place-items: center;
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #fff;
+      user-select: none;
+    }
+
+    .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 28px;
+      padding: 18px 56px;
+      background: #f8fafd;
+      border-bottom: 1px solid var(--line);
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .contact-bar a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-bar a:hover {
+      text-decoration: underline;
+    }
+
+    /* ---------- بدنه ---------- */
+    .body {
+      padding: 36px 56px 48px;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 40px;
+    }
+
+    .section {
+      margin-bottom: 36px;
+    }
+
+    .section:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--line);
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      right: 0;
+      width: 56px;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    .section-title .icon {
+      font-size: 1.1rem;
+    }
+
+    /* سوابق شغلی */
+    .entry {
+      margin-bottom: 22px;
+      padding-right: 16px;
+      border-right: 2px solid var(--line);
+    }
+
+    .entry:last-child {
+      margin-bottom: 0;
+    }
+
+    .entry-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 4px 12px;
+    }
+
+    .entry-title {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    .entry-org {
+      font-weight: 500;
+      color: var(--primary);
+    }
+
+    .entry-date {
+      font-size: 0.85rem;
+      color: var(--muted);
+      background: #f1f4f9;
+      padding: 2px 12px;
+      border-radius: 999px;
+    }
+
+    .entry ul {
+      margin-top: 8px;
+      padding-right: 18px;
+      font-size: 0.94rem;
+      color: #475467;
+    }
+
+    .entry li {
+      margin-bottom: 4px;
+    }
+
+    /* مهارت‌ها */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 10px;
+    }
+
+    .skill {
+      background: #f1f4f9;
+      border-radius: 10px;
+      padding: 8px 14px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-align: center;
+      color: var(--primary);
+    }
+
+    .progress {
+      margin-top: 10px;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      font-weight: 500;
+      margin-bottom: 4px;
+      color: var(--text);
+    }
+
+    .progress-bar {
+      height: 8px;
+      background: #eef1f6;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-bar span {
+      display: block;
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      border-radius: 999px;
+    }
+
+    /* تحصیلات / زبان‌ها */
+    .edu-entry {
+      margin-bottom: 14px;
+    }
+
+    .edu-entry:last-child {
+      margin-bottom: 0;
+    }
+
+    .edu-degree {
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .edu-school {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .lang-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px dashed var(--line);
+      font-size: 0.92rem;
+    }
+
+    .lang-row:last-child {
+      border-bottom: none;
+    }
+
+    .lang-level {
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    /* تماس سریع (ستون کناری) */
+    .aside .section-title {
+      font-size: 1rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+      color: var(--muted);
+      word-break: break-all;
+    }
+
+    .contact-item .icon {
+      width: 34px;
+      height: 34px;
+      flex-shrink: 0;
+      border-radius: 9px;
+      background: #f1f4f9;
+      display: grid;
+      place-items: center;
+      font-size: 1rem;
+    }
+
+    .contact-item a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .contact-item a:hover {
+      text-decoration: underline;
+    }
+
+    /* ---------- چاپ ---------- */
+    @media print {
+      body {
+        background: #fff;
+      }
+      .page {
+        box-shadow: none;
+        margin: 0;
+        border-radius: 0;
+        max-width: 100%;
+      }
+    }
+
+    /* ---------- موبایل ---------- */
+    @media (max-width: 720px) {
+      .page {
+        margin: 0;
+        border-radius: 0;
+      }
+      .header {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 32px 24px;
+      }
+      .avatar {
+        justify-self: center;
+        order: -1;
+      }
+      .contact-bar {
+        padding: 16px 24px;
+      }
+      .body {
+        grid-template-columns: 1fr;
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- سربرگ -->
+    <div class="header">
+      <div>
+        <h1>[نام و نام خانوادگی]</h1>
+        <div class="role">[عنوان شغلی / تخصص]</div>
+      </div>
+      <div class="avatar" aria-label="عکس پروفایل">[عکس]</div>
+    </div>
+
+    <!-- نوار تماس -->
+    <div class="contact-bar">
+      <span>📧 [ایمیل]</span>
+      <span>📱 [شماره تماس]</span>
+      <span>📍 [شهر، کشور]</span>
+      <a href="https://github.com/mrhafpa" target="_blank" rel="noopener">🔗 github.com/mrhafpa</a>
+      <a href="https://linkedin.com/in/[نام-کاربری]" target="_blank" rel="noopener">🔗 linkedin.com/in/[نام-کاربری]</a>
+    </div>
+
+    <div class="body">
+
+      <!-- ستون اصلی -->
+      <main>
+
+        <!-- خلاصه -->
+        <section class="section">
+          <h2 class="section-title"><span class="icon">👤</span> درباره من</h2>
+          <p style="font-size:0.95rem;color:#475467;">
+            [یک پاراگراف ۲ تا ۳ جمله‌ای بنویس که کی هستی، چه کاری انجام می‌دهی و چه ارزشی ایجاد می‌کنی.]
+          </p>
+        </section>
+
+        <!-- سوابق شغلی -->
+        <section class="section">
+          <h2 class="section-title"><span class="icon">💼</span> سوابق شغلی</h2>
+
+          <div class="entry">
+            <div class="entry-head">
+              <span class="entry-title">[عنوان شغلی]</span>
+              <span class="entry-date">[سال شروع] – [سال پایان یا «اکنون»]</span>
+            </div>
+            <div class="entry-org">[نام شرکت / سازمان] — [شهر]</div>
+            <ul>
+              <li>[دستاورد یا مسئولیت اصلی ۱]</li>
+              <li>[دستاورد یا مسئولیت اصلی ۲]</li>
+              <li>[دستاورد یا مسئولیت اصلی ۳]</li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="entry-head">
+              <span class="entry-title">[عنوان شغلی]</span>
+              <span class="entry-date">[سال شروع] – [سال پایان]</span>
+            </div>
+            <div class="entry-org">[نام شرکت / سازمان] — [شهر]</div>
+            <ul>
+              <li>[دستاورد یا مسئولیت اصلی ۱]</li>
+              <li>[دستاورد یا مسئولیت اصلی ۲]</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- پروژه‌ها -->
+        <section class="section">
+          <h2 class="section-title"><span class="icon">🚀</span> پروژه‌ها</h2>
+
+          <div class="entry">
+            <div class="entry-head">
+              <span class="entry-title">[نام پروژه]</span>
+              <span class="entry-date">[سال]</span>
+            </div>
+            <ul>
+              <li>[توضیح کوتاه پروژه و فناوری‌های به‌کار رفته]</li>
+              <li>لینک: <a href="[لینک]" style="color:var(--primary);">[لینک]</a></li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="entry-head">
+              <span class="entry-title">[نام پروژه]</span>
+              <span class="entry-date">[سال]</span>
+            </div>
+            <ul>
+              <li>[توضیح کوتاه پروژه و فناوری‌های به‌کار رفته]</li>
+            </ul>
+          </div>
+        </section>
+
+      </main>
+
+      <!-- ستون کناری -->
+      <aside class="aside">
+
+        <!-- تماس -->
+        <section class="section">
+          <h2 class="section-title"><span class="icon">📞</span> تماس</h2>
+          <div class="contact-item">
+            <span class="icon">📧</span>
+            <a href="mailto:[ایمیل]">[ایمیل]</a>
+          </div>
+          <div class="contact-item">
+            <span class="icon">📱</span>
+            <span>[شماره تماس]</span>
+          </div>
+          <div class="contact-item">
+            <span class="icon">📍</span>
+            <span>[شهر، کشور]</span>
+          </div>
+          <div class="contact-item">
+            <span class="icon">🔗</span>
+            <a href="https://github.com/mrhafpa" target="_blank" rel="noopener">github.com/mrhafpa</a>
+          </div>
+          <div class="contact-item">
+            <span class="icon">💼</span>
+            <a href="https://linkedin.com/in/[نام-کاربری]" target="_blank" rel="noopener">linkedin.com/in/[نام-کاربری]</a>
+          </div>
+        </section>
+
+        <!-- مهارت‌ها -->
+        <section class="section">
+          <h2 class="section-title"><span class="icon">🛠</span> مهارت‌ها</h2>
+          <div class="skills-grid">
+            <span class="skill">[مهارت ۱]</span>
+            <span class="skill">[مهارت ۲]</span>
+            <span class="skill">[مهارت ۳]</span>
+            <span class="skill">[مهارت ۴]</span>
+            <span class="skill">[مهارت ۵]</span>
+            <span class="skill">[مهارت ۶]</span>
+          </div>
+        </section>
+
+        <!-- سطح مهارت -->
+        <section class="section">
+          <h2 class="section-title"><span class="icon">📊</span> سطح مهارت</h2>
+          <div class="progress">
+            <div class="progress-label"><span>[مهارت ۱]</span><span>۹۰٪</span></div>
+            <div class="progress-bar"><span style="width:90%"></span></div>
+          </div>
+          <div class="progress">
+            <div class="progress-label"><span>[مهارت ۲]</span><span>۷۵٪</span></div>
+            <div class="progress-bar"><span style="width:75%"></span></div>
+          </div>
+          <div class="progress">
+            <div class="progress-label"><span>[مهارت ۳]</span><span>۶۰٪</span></div>
+            <div class="progress-bar"><span style="width:60%"></span></div>
+          </div>
+        </section>
+
+        <!-- تحصیلات -->
+        <section class="section">
+          <h2 class="section-title"><span class="icon">🎓</span> تحصیلات</h2>
+          <div class="edu-entry">
+            <div class="edu-degree">[مدرک تحصیلی]</div>
+            <div class="edu-school">[دانشگاه / موسسه] — [سال]</div>
+          </div>
+          <div class="edu-entry">
+            <div class="edu-degree">[مدرک تحصیلی]</div>
+            <div class="edu-school">[دانشگاه / موسسه] — [سال]</div>
+          </div>
+        </section>
+
+        <!-- زبان‌ها -->
+        <section class="section">
+          <h2 class="section-title"><span class="icon">🌐</span> زبان‌ها</h2>
+          <div class="lang-row">
+            <span>فارسی</span>
+            <span class="lang-level">زبان مادری</span>
+          </div>
+          <div class="lang-row">
+            <span>انگلیسی</span>
+            <span class="lang-level">[سطح، مثلاً: پیشرفته]</span>
+          </div>
+          <div class="lang-row">
+            <span>[زبان دیگر]</span>
+            <span class="lang-level">[سطح]</span>
+          </div>
+        </section>
+
+        <!-- گواهینامه‌ها -->
+        <section class="section">
+          <h2 class="section-title"><span class="icon">📜</span> گواهینامه‌ها</h2>
+          <div class="edu-entry">
+            <div class="edu-degree">[نام گواهینامه]</div>
+            <div class="edu-school">[صادرکننده] — [سال]</div>
+          </div>
+          <div class="edu-entry">
+            <div class="edu-degree">[نام گواهینامه]</div>
+            <div class="edu-school">[صادرکننده] — [سال]</div>
+          </div>
+        </section>
+
+      </aside>
+
+    </div>
+  </div>
+</body>
+</html>
